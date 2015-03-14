@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10D0155B1AB4C8BC00CF3AB3 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D0155A1AB4C8BC00CF3AB3 /* EventCell.swift */; };
 		B8B0FD051AB008500097E996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD041AB008500097E996 /* AppDelegate.swift */; };
 		B8B0FD071AB008500097E996 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD061AB008500097E996 /* ViewController.swift */; };
 		B8B0FD0C1AB008500097E996 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B0FD0B1AB008500097E996 /* Images.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10D0155A1AB4C8BC00CF3AB3 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		B8B0FCFF1AB008500097E996 /* MiniMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B0FD031AB008500097E996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8B0FD041AB008500097E996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				B8B0FD0B1AB008500097E996 /* Images.xcassets */,
 				B8B0FD0D1AB008500097E996 /* LaunchScreen.xib */,
 				B8B0FD261AB01C400097E996 /* Main.storyboard */,
+				10D0155A1AB4C8BC00CF3AB3 /* EventCell.swift */,
 				B8B0FD2B1AB01EFD0097E996 /* ProfileViewController.swift */,
 				B8B0FD291AB01D080097E996 /* EventDetailViewController.swift */,
 				B8B0FD021AB008500097E996 /* Supporting Files */,
@@ -225,6 +228,7 @@
 				B8B0FD251AB01A4B0097E996 /* FeedViewController.swift in Sources */,
 				B8B0FD2C1AB01EFD0097E996 /* ProfileViewController.swift in Sources */,
 				B8B0FD2A1AB01D080097E996 /* EventDetailViewController.swift in Sources */,
+				10D0155B1AB4C8BC00CF3AB3 /* EventCell.swift in Sources */,
 				B8B0FD051AB008500097E996 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +421,7 @@
 				B8B0FD201AB008500097E996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8B0FD211AB008500097E996 /* Build configuration list for PBXNativeTarget "MiniMeetTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				B8B0FD231AB008500097E996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
