@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateViewController: UIViewController {
+class CreateViewController: UIViewController, UIActionSheetDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
@@ -20,8 +20,6 @@ class CreateViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1)
         
         scrollView.contentSize = contentView.frame.size
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +41,37 @@ class CreateViewController: UIViewController {
     @IBAction func cancelDidPress(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
     @IBAction func submitButtonDidPress(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func addImageDidPress(sender: AnyObject) {
+        
+        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) {
+            action -> Void in
+        }
+
+        actionSheetController.addAction(cancelAction)
+
+        let takePictureAction: UIAlertAction = UIAlertAction(title: "Take Picture", style: .Default) {
+            action -> Void in
+        }
+
+        actionSheetController.addAction(takePictureAction)
+
+        let choosePictureAction: UIAlertAction = UIAlertAction(title: "Choose From Camera Roll", style: .Default) {
+            action -> Void in
+        }
+        
+        actionSheetController.addAction(choosePictureAction)
+        
+        actionSheetController.popoverPresentationController?.sourceView = sender as UIView;
+        
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+        
+    }
+       
 }

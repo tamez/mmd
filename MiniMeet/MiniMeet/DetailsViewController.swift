@@ -11,13 +11,14 @@ import UIKit
 class DetailsViewController: UIViewController, UIScrollViewDelegate {
 
 
+    @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet weak var eventSubtitle: UILabel!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    var image: UIImage!
-    var endTransition: CGRect!
-    
+    var event: Event?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,16 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = imageView.frame.size
         scrollView.delegate = self
 
-        imageView.image = image
-        imageView.frame = endTransition
-
+        imageView.image = event?.image
+        imageView.hidden = true
+        
+        eventTitle.text = event?.title
+        eventSubtitle.text = event?.subtitle
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        imageView.hidden = false
     }
 
     override func didReceiveMemoryWarning() {

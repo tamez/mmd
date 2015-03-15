@@ -9,21 +9,11 @@
 import UIKit
 
 class EventCell: UITableViewCell {
-
-    
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var eventSubtitle: UILabel!
-   
     @IBOutlet weak var eventImage: UIImageView!
-       override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    func snapshot() -> UIView {
+        return snapshotViewAfterScreenUpdates(false)
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

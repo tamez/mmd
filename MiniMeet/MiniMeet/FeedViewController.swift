@@ -8,19 +8,35 @@
 
 import UIKit
 
+struct Event {
+    let title: String
+    let location: String
+    let dateString: String
+    
+    var subtitle: String {
+        get {
+            return "\(location) • \(dateString)"
+        }
+    }
+    
+    var image: UIImage {
+        get {
+            let image = UIImage(named: title)
+            
+            if let image = image {
+                return image
+            } else {
+                return UIImage()
+            }
+        }
+    }
+}
+
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var isPresenting: Bool = true
-
-    var events = [String]()
-    var subtitle = [String]()
-    
     @IBOutlet weak var eventTableView: UITableView!
-    
-    var selectedImageView: UIImageView!
-    var movingImageView: UIImageView!
-    var fadeTransition: FadeTransition!
-    var endTransition: CGRect!
+
+    var events: [Event] = []
     var imageTransition: ImageTransition!
     
     override func viewDidLoad() {
@@ -28,11 +44,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
-        eventTableView.rowHeight = 185
-        events = ["Technofeminism", "Game of Thrones", "Biking in the Bay"]
-        subtitle = ["Sightglass Coffee • March 20, 1 pm", "Blue Bottle Coffee • April 22, 2 pm", "Starbucks • April 4, 3 pm"]
+        eventTableView.rowHeight = 227
+        
+        let technofeminism = Event(title: "Technofeminism", location: "Sightglass Coffee", dateString: "March 20, 1 pm")
+        let gameOfThrones = Event(title: "Game of Thrones", location: "Blue Bottle Coffee", dateString: "April 22, 2 pm")
+        let bikingInTheBay = Event(title: "Biking in the Bay", location: "Starbucks", dateString: "April 4, 3 pm")
+        
+        events = [technofeminism, gameOfThrones, bikingInTheBay]
         
         self.title = "Events"
+        
+     //   self.attendeeDot.layer.cornerRadius = self.attendeeDot.frame.size.width / 2;
+     //   self.attendeeDot.clipsToBounds = true;
 
 
     }
@@ -53,49 +76,30 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            var cell = tableView.dequeueReusableCellWithIdentifier("eventCellId") as EventCell
-            
-            cell.eventTitle.text = events[indexPath.row]
-            cell.eventSubtitle.text = subtitle[indexPath.row]
+        var cell = tableView.dequeueReusableCellWithIdentifier("eventCellId") as EventCell
+        let event = events[indexPath.row]
         
-            var imageName = UIImage(named: events[indexPath.row])
-            cell.eventImage.image = imageName
-            
-            return cell
-        }
+        cell.eventTitle.text = event.title
+        cell.eventSubtitle.text = event.subtitle
+        cell.eventImage.image = event.image;
+        
+        return cell
+    }
    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destinationVC = segue.destinationViewController as DetailsViewController
-        destinationVC.image = selectedImageView.image
-       // var height = (selectedImageView.image!.size.height*320)/selectedImageView.image!.size.width
-     //   endTransition = CGRect(x: 0, y: ((self.view.frame.size.height - height)/2), width: 320, height: height)
+        let cell = sender as EventCell
+        let indexPath = eventTableView.indexPathForCell(cell)
         
+        var destinationVC = segue.destinationViewController as DetailsViewController
+        destinationVC.event = events[indexPath!.row]
         
         imageTransition = ImageTransition()
-        imageTransition.duration = 0.5
-        imageTransition.endTransition = endTransition
+        imageTransition.snapshot = cell.snapshot()
+        imageTransition.snapshotStartFrame = eventTableView.rectForRowAtIndexPath(indexPath!)
+        imageTransition.duration = 0.3
         
-        
-        
-        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         destinationVC.transitioningDelegate = imageTransition
-        
-        destinationVC.endTransition = imageTransition.endTransition
+        // cell.hidden = true
     }
-
-    
-    @IBAction func onTap(sender: UITapGestureRecognizer) {
-        
-        var imageView = sender.view as UIImageView
-        selectedImageView = imageView
-        performSegueWithIdentifier("detailsSegue", sender: self)
-        println("tap")
-
-
-    }
-    
-    
-    
-
 }

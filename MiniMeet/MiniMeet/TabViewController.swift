@@ -15,6 +15,7 @@ class TabViewController: UIViewController {
     var feedViewController: UIViewController!
     var createViewController: UIViewController!
     var profileViewController: UIViewController!
+    var selectedViewController: UIViewController?
 
     @IBOutlet weak var contentView: UIView!
     
@@ -23,7 +24,7 @@ class TabViewController: UIViewController {
     
     var selectedIndex: Int! = 0
     var duration: NSTimeInterval!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,7 @@ class TabViewController: UIViewController {
         tabContentView.frame = contentView.frame
         contentView.addSubview(tabContentView)
         viewControllersArray[selectedIndex].didMoveToParentViewController(self)
+        selectedViewController = viewControllersArray[selectedIndex];
     }
     
     func removeChildView(content: UIViewController) {
