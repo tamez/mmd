@@ -1,24 +1,25 @@
 //
-//  CreateViewController.swift
+//  SettingsViewController.swift
 //  MiniMeet
 //
-//  Created by Michelle Venetucci Harvey on 3/14/15.
+//  Created by Michelle Venetucci Harvey on 3/15/15.
 //  Copyright (c) 2015 hi_hu. All rights reserved.
 //
 
 import UIKit
 
-class CreateViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Create Event"
+        self.title = "Settings"
         
-        self.view.backgroundColor = UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1)
-        
+        self.view.backgroundColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+
         scrollView.contentSize = contentView.frame.size
 
         // Do any additional setup after loading the view.
@@ -40,10 +41,4 @@ class CreateViewController: UIViewController {
     }
     */
 
-    @IBAction func cancelDidPress(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    @IBAction func submitButtonDidPress(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
 }

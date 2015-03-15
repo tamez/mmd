@@ -30,10 +30,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         eventTableView.dataSource = self
         eventTableView.rowHeight = 185
         events = ["Technofeminism", "Game of Thrones", "Biking in the Bay"]
-        subtitle = ["Sightglass Coffee • March 20, 1 pm", "Blue Bottle Coffee • April 22, 2 pm", "Starbucks • April 4, 3 pm"]       
+        subtitle = ["Sightglass Coffee • March 20, 1 pm", "Blue Bottle Coffee • April 22, 2 pm", "Starbucks • April 4, 3 pm"]
+        
+        self.title = "Events"
 
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,8 +68,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var destinationVC = segue.destinationViewController as DetailsViewController
         destinationVC.image = selectedImageView.image
-        var height = (selectedImageView.image!.size.height*320)/selectedImageView.image!.size.width
-        endTransition = CGRect(x: 0, y: ((self.view.frame.size.height - height)/2), width: 320, height: height)
+       // var height = (selectedImageView.image!.size.height*320)/selectedImageView.image!.size.width
+     //   endTransition = CGRect(x: 0, y: ((self.view.frame.size.height - height)/2), width: 320, height: height)
         
         
         imageTransition = ImageTransition()
@@ -89,6 +90,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         var imageView = sender.view as UIImageView
         selectedImageView = imageView
         performSegueWithIdentifier("detailsSegue", sender: self)
+        println("tap")
+
+
     }
     
     
