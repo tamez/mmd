@@ -9,12 +9,20 @@
 import UIKit
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
     
+    var isPresenting: Bool = true
+
     var events = [String]()
     var subtitle = [String]()
     
     @IBOutlet weak var eventTableView: UITableView!
+    
+    var selectedImageView: UIImageView!
+    var movingImageView: UIImageView!
+    var fadeTransition: FadeTransition!
+    var endTransition: CGRect!
+    var imageTransition: ImageTransition!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +43,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     
     
@@ -55,15 +63,35 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             return cell
         }
    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var destinationVC = segue.destinationViewController as DetailsViewController
+        destinationVC.image = selectedImageView.image
+        var height = (selectedImageView.image!.size.height*320)/selectedImageView.image!.size.width
+        endTransition = CGRect(x: 0, y: ((self.view.frame.size.height - height)/2), width: 320, height: height)
+        
+        
+        imageTransition = ImageTransition()
+        imageTransition.duration = 0.5
+        imageTransition.endTransition = endTransition
+        
+        
+        
+        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationVC.transitioningDelegate = imageTransition
+        
+        destinationVC.endTransition = imageTransition.endTransition
     }
-    */
+
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        
+        var imageView = sender.view as UIImageView
+        selectedImageView = imageView
+        performSegueWithIdentifier("detailsSegue", sender: self)
+    }
+    
+    
+    
 
 }
