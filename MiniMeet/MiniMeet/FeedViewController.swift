@@ -10,28 +10,22 @@ import UIKit
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var feedScrollView: UIScrollView!
     
     var events = [String]()
-    var locations = [String]()
-    var times = [String]()
-    var images = [UIImage]()
-
+    var subtitle = [String]()
+    
     @IBOutlet weak var eventTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
-        eventTableView.rowHeight = 205
-        events = ["Technofeminism", "Game of Thrones", "Biking in the Bay", "Product Design"]
-        locations = ["Sightglass Coffee", "Blue Bottle Coffee", "Starbucks", "Red Dog"]
-        times = ["March 20, 1 pm", "April 22, 2 pm", "April 4, 3 pm", "April 6, 3 pm"]
-       
+        eventTableView.rowHeight = 185
+        events = ["Technofeminism", "Game of Thrones", "Biking in the Bay"]
+        subtitle = ["Sightglass Coffee • March 20, 1 pm", "Blue Bottle Coffee • April 22, 2 pm", "Starbucks • April 4, 3 pm"]       
 
 
         // Do any additional setup after loading the view.
-        feedScrollView.contentSize.height = 1000
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,12 +35,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 1
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return "Events"
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return events.count
@@ -56,19 +47,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             var cell = tableView.dequeueReusableCellWithIdentifier("eventCellId") as EventCell
             
             cell.eventTitle.text = events[indexPath.row]
-            cell.eventLocation.text = locations[indexPath.row]
-            cell.eventTime.text = times[indexPath.row]
+            cell.eventSubtitle.text = subtitle[indexPath.row]
         
             var imageName = UIImage(named: events[indexPath.row])
             cell.eventImage.image = imageName
             
             return cell
         }
-   /*
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("testSegue", sender: self)
-    }
-*/
+   
 
     /*
     // MARK: - Navigation

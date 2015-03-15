@@ -1,25 +1,25 @@
 //
-//  ProfileViewController.swift
+//  CreateViewController.swift
 //  MiniMeet
 //
-//  Created by Hi_Hu on 3/10/15.
+//  Created by Michelle Venetucci Harvey on 3/14/15.
 //  Copyright (c) 2015 hi_hu. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class CreateViewController: UIViewController {
 
-    @IBOutlet weak var profileScrollView: UIScrollView!
-    @IBOutlet weak var profileFeed: UIImageView!
-    
-    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1)
+        
+        scrollView.contentSize = contentView.frame.size
 
         // Do any additional setup after loading the view.
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,4 +38,10 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    @IBAction func cancelDidPress(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func submitButtonDidPress(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
