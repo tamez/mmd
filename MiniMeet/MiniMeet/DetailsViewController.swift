@@ -68,5 +68,17 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
     }
 
 
+    @IBAction func submitButtonDidPress(sender: AnyObject) {
+        
+        var alertView = UIAlertView(title: "You're all signed up!", message: "Get ready for some good company.", delegate: self, cancelButtonTitle: "Browse more meetups")
+        alertView.show()
+        
+        delay(2, { () -> () in
+//           alertView.dismissWithClickedButtonIndex(0, animated: true)
 
+            self.performSegueWithIdentifier("attendEventSegue", sender: self)
+            
+        })
+
+    }
 }

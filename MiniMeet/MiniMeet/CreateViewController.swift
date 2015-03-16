@@ -56,18 +56,7 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
         var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
         var animationCurve = curveValue.integerValue
     }
-        
-//        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
-//            
-//            self.loginContainer.center.y = kbSize.height - self.loginContainer.center.y/8
-//            
-//            self.buttonContainer.center.y = kbSize.height + self.buttonContainer.center.y/6
-//            
-//            self.logo.center.y = self.logo.center.y - 15
-//            
-//            }, completion: nil)
-//        
-//    }
+    
     
     func keyboardWillHide(notification: NSNotification!) {
         var userInfo = notification.userInfo!
@@ -78,31 +67,6 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
         var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
         var animationCurve = curveValue.integerValue
     }
-        
-//        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
-        
-//            self.loginContainer.center.y = kbSize.height + self.loginContainer.center.y/10
-//            self.buttonContainer.center.y = kbSize.height + self.buttonContainer.center.y/1
-//            self.logo.center.y = kbSize.height + self.logo.center.y/20
-//            }, completion: nil)
-//    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     @IBAction func submitButtonDidPress(sender: AnyObject) {
         
@@ -129,9 +93,6 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
         }
     }
 
-    
-        
-    
     
     @IBAction func addImageDidPress(sender: AnyObject) {
         

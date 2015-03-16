@@ -318,13 +318,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YdZ-Oq-rSK">
-                                <rect key="frame" x="137" y="532" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="submit">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Q2w-eI-pR4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -405,6 +398,20 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YdZ-Oq-rSK">
+                                        <rect key="frame" x="85" y="507" width="151" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.27450980390000002" green="0.6705882353" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                        <state key="normal" title="I want to attend!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitButtonDidPress:" destination="gjM-Dj-JbY" eventType="touchUpInside" id="P3f-Xi-pXQ"/>
+                                            <segue destination="4dY-K3-Dnd" kind="modal" identifier="attendEventSegue" modalTransitionStyle="crossDissolve" id="sjM-Hd-Yjo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" id="joE-ys-xyk" userLabel="Nav bar">
@@ -794,7 +801,7 @@
                                                 <connections>
                                                     <action selector="cancelDidPress:" destination="Xol-Ln-VWh" eventType="touchUpInside" id="jqb-vV-mxm"/>
                                                     <action selector="submitButtonDidPress:" destination="Xol-Ln-VWh" eventType="touchUpInside" id="sKt-en-Lwl"/>
-                                                    <segue destination="csb-67-6M9" kind="modal" identifier="submitEventSegue" id="0Yp-tT-llT"/>
+                                                    <segue destination="4dY-K3-Dnd" kind="modal" identifier="submitEventSegue" id="R8I-Vl-PmB"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -917,4 +924,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="sjM-Hd-Yjo"/>
+    </inferredMetricsTieBreakers>
 </document>
