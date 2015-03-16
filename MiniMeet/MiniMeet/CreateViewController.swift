@@ -12,6 +12,10 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,53 +24,114 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
         self.view.backgroundColor = UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1)
         
         scrollView.contentSize = contentView.frame.size
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
     @IBAction func cancelDidPress(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func submitButtonDidPress(sender: AnyObject) {
-       // dismissViewControllerAnimated(true, completion: nil)
-        
-        //Create the AlertController
-        let actionSheetController: UIAlertController = UIAlertController(title: "Alert", message: "Swiftly Now! Choose an option!", preferredStyle: .Alert)
-        
-        //Create and add the Cancel action
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            //Do some stuff
-        }
-        actionSheetController.addAction(cancelAction)
-        //Create and an option action
-        let nextAction: UIAlertAction = UIAlertAction(title: "Next", style: .Default) { action -> Void in
-            //Do some other stuff
-        }
-        actionSheetController.addAction(nextAction)
-        //Add a text field
-        actionSheetController.addTextFieldWithConfigurationHandler { textField -> Void in
-            //TextField configuration
-            textField.textColor = UIColor.blueColor()
-        }
-        
-        //Present the AlertController
-        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
+    
+    func keyboardWillShow(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
+        var animationCurve = curveValue.integerValue
+    }
+        
+//        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+//            
+//            self.loginContainer.center.y = kbSize.height - self.loginContainer.center.y/8
+//            
+//            self.buttonContainer.center.y = kbSize.height + self.buttonContainer.center.y/6
+//            
+//            self.logo.center.y = self.logo.center.y - 15
+//            
+//            }, completion: nil)
+//        
+//    }
+    
+    func keyboardWillHide(notification: NSNotification!) {
+        var userInfo = notification.userInfo!
+        
+        var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
+        var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+        var animationDuration = durationValue.doubleValue
+        var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
+        var animationCurve = curveValue.integerValue
+    }
+        
+//        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+        
+//            self.loginContainer.center.y = kbSize.height + self.loginContainer.center.y/10
+//            self.buttonContainer.center.y = kbSize.height + self.buttonContainer.center.y/1
+//            self.logo.center.y = kbSize.height + self.logo.center.y/20
+//            }, completion: nil)
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func submitButtonDidPress(sender: AnyObject) {
+        
+        if countElements(titleTextField.text) == 0 {
+            UIAlertView(title: "Meetup Name Required", message: "Please create a name for your meetup!", delegate: self, cancelButtonTitle: "OK").show()
+        } else if countElements(dateTextField.text) == 0 {
+            UIAlertView(title: "Date Required", message: "Please select a day for your meetup", delegate: self, cancelButtonTitle: "OK").show()
+        } else if countElements(locationTextField.text) == 0 {
+            UIAlertView(title: "Location Required", message: "Please select a location for your meetup", delegate: self, cancelButtonTitle: "OK").show()
+        } else if countElements(descriptionTextField.text) == 0 {
+            UIAlertView(title: "Description Required", message: "Please describe your meetup", delegate: self, cancelButtonTitle: "OK").show()
+        } else {
+            var alertView = UIAlertView(title: "Submitting", message: "Your meetup is almost ready", delegate: nil, cancelButtonTitle: nil)
+            alertView.show()
+        
+        delay(2, { () -> () in
+                alertView.dismissWithClickedButtonIndex(0, animated: true)
+                if self.titleTextField.text == "m" && self.descriptionTextField.text == "p" {
+                    self.performSegueWithIdentifier("submitEventSegue", sender: self)
+                } else {
+                    UIAlertView(title: "Sign In Failed", message: "Incorrect email or password", delegate: self, cancelButtonTitle: "OK").show()
+                }
+            })
+        }
+    }
+
+    
+        
+    
     
     @IBAction func addImageDidPress(sender: AnyObject) {
         
@@ -97,3 +162,4 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
     }
        
 }
+

@@ -784,7 +784,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LLH-Ru-EBu">
-                                                <rect key="frame" x="0.0" y="810" width="320" height="44"/>
+                                                <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="submit">
@@ -794,6 +794,7 @@
                                                 <connections>
                                                     <action selector="cancelDidPress:" destination="Xol-Ln-VWh" eventType="touchUpInside" id="jqb-vV-mxm"/>
                                                     <action selector="submitButtonDidPress:" destination="Xol-Ln-VWh" eventType="touchUpInside" id="sKt-en-Lwl"/>
+                                                    <segue destination="csb-67-6M9" kind="modal" identifier="submitEventSegue" id="0Yp-tT-llT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -809,7 +810,11 @@
                     <size key="freeformSize" width="320" height="1008"/>
                     <connections>
                         <outlet property="contentView" destination="ia8-Rw-Hyj" id="KTR-by-vz6"/>
+                        <outlet property="dateTextField" destination="6JC-xY-ocl" id="Wsm-ht-Lx4"/>
+                        <outlet property="descriptionTextField" destination="bGl-S7-Hn8" id="aGY-cC-HuR"/>
+                        <outlet property="locationTextField" destination="KgM-1O-vFt" id="BNj-Je-Nlj"/>
                         <outlet property="scrollView" destination="Sff-5D-1Qd" id="uwR-Q0-QNN"/>
+                        <outlet property="titleTextField" destination="6dS-Lp-g7K" id="Esn-18-Grg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5K-aL-1No" sceneMemberID="firstResponder"/>
