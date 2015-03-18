@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class CreateViewController: UIViewController, UIActionSheetDelegate {
 
@@ -15,15 +16,30 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextView!
+    
+    var borderColor = UIColor(red: 222/255, green: 222/255, blue: 222/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Create Event"
         
-        self.view.backgroundColor = UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1)
-        
         scrollView.contentSize = contentView.frame.size
+        
+        
+        titleTextField!.layer.borderWidth = 1
+        titleTextField!.layer.borderColor = borderColor.CGColor
+        titleTextField.layer.cornerRadius = 5
+        dateTextField!.layer.borderWidth = 1
+        dateTextField!.layer.borderColor = borderColor.CGColor
+        dateTextField.layer.cornerRadius = 5
+        locationTextField!.layer.borderWidth = 1
+        locationTextField!.layer.borderColor = borderColor.CGColor
+        locationTextField.layer.cornerRadius = 5
+        descriptionTextField!.layer.borderWidth = 1
+        descriptionTextField!.layer.borderColor = borderColor.CGColor
+        descriptionTextField.layer.cornerRadius = 5
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
@@ -39,7 +55,16 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // Calculate hex values for color: 
     
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -50,11 +75,19 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
     func keyboardWillShow(notification: NSNotification!) {
         var userInfo = notification.userInfo!
         
+        
         var kbSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
         var durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
         var animationDuration = durationValue.doubleValue
         var curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey] as NSNumber
         var animationCurve = curveValue.integerValue
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: UIViewAnimationOptions(UInt(animationCurve << 16)), animations: {
+            
+
+            }, completion: nil)
+        
+
     }
     
     
@@ -122,5 +155,8 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
         
     }
        
+    @IBAction func tapGesture(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
