@@ -36,15 +36,23 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var eventTableView: UITableView!
 
+    
     var events: [Event] = []
     var imageTransition: ImageTransition!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
-        eventTableView.rowHeight = 227
+        eventTableView.rowHeight = 187
+        
+       
+        
+        
+        
         
         let technofeminism = Event(title: "Technofeminism", location: "Sightglass Coffee", dateString: "March 20, 1 pm")
         let gameOfThrones = Event(title: "Game of Thrones", location: "Blue Bottle Coffee", dateString: "April 22, 2 pm")
@@ -53,6 +61,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         events = [technofeminism, gameOfThrones, bikingInTheBay]
         
         self.title = "Events"
+        
+      
         
      //   self.attendeeDot.layer.cornerRadius = self.attendeeDot.frame.size.width / 2;
      //   self.attendeeDot.clipsToBounds = true;

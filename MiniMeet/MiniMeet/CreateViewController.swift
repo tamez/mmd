@@ -112,12 +112,13 @@ class CreateViewController: UIViewController, UIActionSheetDelegate {
         } else if countElements(descriptionTextField.text) == 0 {
             UIAlertView(title: "Description Required", message: "Please describe your meetup", delegate: self, cancelButtonTitle: "OK").show()
         } else {
-            var alertView = UIAlertView(title: "Submitting", message: "Your meetup is almost ready", delegate: nil, cancelButtonTitle: nil)
+            var alertView = UIAlertView(title: "Thanks for creating an event!", message: nil, delegate: nil, cancelButtonTitle: nil)
             alertView.show()
         
         delay(2, { () -> () in
                 alertView.dismissWithClickedButtonIndex(0, animated: true)
-                if self.titleTextField.text == "m" && self.descriptionTextField.text == "p" {
+            
+                if countElements(self.titleTextField.text) > 1 && countElements(self.descriptionTextField.text) > 1 {
                     self.performSegueWithIdentifier("submitEventSegue", sender: self)
                 } else {
                     UIAlertView(title: "Sign In Failed", message: "Incorrect email or password", delegate: self, cancelButtonTitle: "OK").show()

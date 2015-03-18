@@ -13,7 +13,13 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var eventSubtitle: UILabel!
     @IBOutlet weak var eventImage: UIImageView!
     
+        // Initialization code
+
+
+    
+    
     func snapshot() -> UIView {
         return snapshotViewAfterScreenUpdates(false)
     }
 }
+
