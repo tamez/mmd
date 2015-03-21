@@ -277,6 +277,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" id="7Zd-Ng-NOX" userLabel="overall view">
+                                        <rect key="frame" x="17" y="0.0" width="279" height="638"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a block of text I am a block of text I am a block of text I am a block of text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vuH-IA-YUu">
+                                                <rect key="frame" x="42" y="245" width="200" height="75"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.89411764709999997" green="0.50196078430000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                     <view contentMode="scaleToFill" id="okx-Rw-7UV">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -340,9 +354,11 @@
                     <connections>
                         <outlet property="cancelButton" destination="YJQ-ks-nup" id="uPK-x7-8bC"/>
                         <outlet property="containerView" destination="okx-Rw-7UV" id="peC-UL-owM"/>
+                        <outlet property="descriptionText" destination="vuH-IA-YUu" id="sMR-cm-dF2"/>
                         <outlet property="eventSubtitle" destination="vVM-3s-12T" id="qgw-fH-bDd"/>
                         <outlet property="eventTitle" destination="fhU-ch-CzK" id="bZL-vQ-oJh"/>
                         <outlet property="imageView" destination="GSq-1P-rB8" id="z0p-Lz-UIy"/>
+                        <outlet property="overallView" destination="7Zd-Ng-NOX" id="35M-ec-4eH"/>
                         <outlet property="scrollView" destination="Q2w-eI-pR4" id="oXE-0r-yXC"/>
                         <outlet property="submitButton" destination="YdZ-Oq-rSK" id="5Zv-th-EfZ"/>
                     </connections>
@@ -783,6 +799,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="R8I-Vl-PmB"/>
+        <segue reference="sjM-Hd-Yjo"/>
     </inferredMetricsTieBreakers>
 </document>

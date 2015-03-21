@@ -18,24 +18,38 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var overallView: UIView!
+    @IBOutlet weak var descriptionText: UILabel!
     var event: Event?
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize = imageView.frame.size
+        scrollView.contentSize = overallView.frame.size
         scrollView.delegate = self
 
         imageView.image = event?.image
         imageView.hidden = true
+
         
         eventTitle.text = event?.title
         eventSubtitle.text = event?.subtitle
+        
+        descriptionText.alpha = 0
+        
+    
+        println("loaded")
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         imageView.hidden = false
+        animateDetailsDown()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,4 +95,19 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         })
 
     }
+    
+    
+    func animateDetailsDown() {
+        var descriptionPosition = self.descriptionText.center.y
+        let duration: NSTimeInterval = 0.2
+        
+        UIView.animateWithDuration(duration, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            self.descriptionText.center.y = descriptionPosition + 30
+            self.descriptionText.alpha = 1
+        }) { (bool) -> Void in
+            //
+        }
+    }
+    
+    
 }

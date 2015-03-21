@@ -48,11 +48,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         eventTableView.delegate = self
         eventTableView.dataSource = self
         eventTableView.rowHeight = 187
-        
-       
-        
-        
-        
+
         
         let technofeminism = Event(title: "Technofeminism", location: "Sightglass Coffee", dateString: "March 20, 1 pm")
         let gameOfThrones = Event(title: "Game of Thrones", location: "Blue Bottle Coffee", dateString: "April 22, 2 pm")
