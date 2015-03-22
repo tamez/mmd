@@ -8,7 +8,14 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController, UIScrollViewDelegate {
+class DetailsViewController: UIViewController, UIScrollViewDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+    
+    var isPresenting: Bool = true
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        modalPresentationStyle = UIModalPresentationStyle.Custom
+        transitioningDelegate = self
+    }
 
     @IBOutlet weak var attendeeOne: UIButton!
     @IBOutlet weak var contentView: UIView!
@@ -22,6 +29,7 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var dividerBar: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var submitView: UIView!
     
     var event: Event?
 
@@ -46,6 +54,8 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         
         eventTitle.text = event?.title
         eventSubtitle.text = event?.subtitle
+        
+        self.view.backgroundColor = UIColor(red: 56/255, green: 77/255, blue: 103/255, alpha: 0.9)
 
     }
     
@@ -94,13 +104,12 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction func submitButtonDidPress(sender: AnyObject) {
         
-        var alertView = UIAlertView(title: "You're all signed up!", message: "Get ready for some good company.", delegate: self, cancelButtonTitle: "Browse more meetups")
-        alertView.show()
         
-        delay(2, { () -> () in
-        // alertView.dismissWithClickedButtonIndex(0, animated: true)
-       self.performSegueWithIdentifier("attendEventSegue", sender: self)
-        })
+        
+//        delay(2, { () -> () in
+//        // alertView.dismissWithClickedButtonIndex(0, animated: true)
+//       self.performSegueWithIdentifier("attendEventSegue", sender: self)
+//        })
     }
 
 
@@ -152,5 +161,81 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
             //
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = true
+        return self
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+        isPresenting = false
+        return self
+    }
+    
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+        return 0.4
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        
+        var containerView = transitionContext.containerView()
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        
+        if (isPresenting) {
+            var submitViewStart = submitView.center.y + 700
+            var submitViewEnd = submitView.center.y
+            submitView.center.y = submitViewStart
+            
+            
+            
+            UIView.animateWithDuration(0.5)
+                { () -> Void in
+                    self.submitView.center.y = submitViewEnd
+                    
+            }
+            
+            
+            containerView.addSubview(toViewController.view)
+            toViewController.view.alpha = 0
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                toViewController.view.alpha = 1
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+            }
+        } else {
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                fromViewController.view.alpha = 0
+                }) { (finished: Bool) -> Void in
+                    transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()              }
+        }
+    }
+
+    
+    
+    
+    
+    
+    
    
 }
