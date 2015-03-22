@@ -8,14 +8,9 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController, UIScrollViewDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class DetailsViewController: UIViewController, UIScrollViewDelegate {
     
-    var isPresenting: Bool = true
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        modalPresentationStyle = UIModalPresentationStyle.Custom
-        transitioningDelegate = self
-    }
+  
 
     @IBOutlet weak var attendeeOne: UIButton!
     @IBOutlet weak var contentView: UIView!
@@ -30,6 +25,7 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate, UIViewContr
     @IBOutlet weak var dividerBar: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var submitView: UIView!
+    @IBOutlet weak var submitBackground: UIView!
     
     var event: Event?
 
@@ -51,11 +47,15 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate, UIViewContr
         dividerBar.alpha = 0
         mapView.alpha = 0
         attendeeOne.alpha = 0
+        submitView.alpha = 0
+        submitBackground.alpha = 0
         
         eventTitle.text = event?.title
         eventSubtitle.text = event?.subtitle
         
         self.view.backgroundColor = UIColor(red: 56/255, green: 77/255, blue: 103/255, alpha: 0.9)
+        
+        configureView()
 
     }
     
@@ -103,14 +103,25 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate, UIViewContr
 
 
     @IBAction func submitButtonDidPress(sender: AnyObject) {
+    
+        var submitViewPostion = self.submitView.center.y
         
-        
-        
-//        delay(2, { () -> () in
-//        // alertView.dismissWithClickedButtonIndex(0, animated: true)
-//       self.performSegueWithIdentifier("attendEventSegue", sender: self)
-//        })
+    
+        delay(0.1, { () -> () in
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+                self.submitView.center.y = submitViewPostion + 30
+                self.submitView.alpha = 1
+                self.submitBackground.alpha = 0.4
+               
+                }, completion: { (bool) -> Void in
+                    //
+            })
+        })
     }
+
+    
+    
+    
 
 
     // animate event details description and map on page load
@@ -163,73 +174,82 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate, UIViewContr
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = true
-        return self
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-        isPresenting = false
-        return self
-    }
-    
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.4
-    }
-    
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func configureView() {
+        var paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        paragraphStyle.lineSpacing = 4.0
         
-        var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        var attributes = [NSParagraphStyleAttributeName: paragraphStyle]
         
-        if (isPresenting) {
-            var submitViewStart = submitView.center.y + 700
-            var submitViewEnd = submitView.center.y
-            submitView.center.y = submitViewStart
-            
-            
-            
-            UIView.animateWithDuration(0.5)
-                { () -> Void in
-                    self.submitView.center.y = submitViewEnd
-                    
-            }
-            
-            
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                toViewController.view.alpha = 1
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-            }
-        } else {
-            UIView.animateWithDuration(0.4, animations: { () -> Void in
-                fromViewController.view.alpha = 0
-                }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
-                    fromViewController.view.removeFromSuperview()              }
-        }
+        var attributedString = NSAttributedString(string: descriptionText!.text!, attributes: attributes)
+        
+        descriptionText.attributedText = attributedString
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+//        isPresenting = true
+//        return self
+//    }
+//    
+//    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+//        isPresenting = false
+//        return self
+//    }
+//    
+//    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+//        return 0.4
+//    }
+//    
+//    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+//        
+//        var containerView = transitionContext.containerView()
+//        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+//        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+//        
+//        if (isPresenting) {
+//            var submitViewStart = submitView.center.y + 700
+//            var submitViewEnd = submitView.center.y
+//            submitView.center.y = submitViewStart
+//            
+//            
+//            
+//            UIView.animateWithDuration(0.5)
+//                { () -> Void in
+//                    self.submitView.center.y = submitViewEnd
+//                    
+//            }
+//            
+//            
+//            containerView.addSubview(toViewController.view)
+//            toViewController.view.alpha = 0
+//            UIView.animateWithDuration(0.4, animations: { () -> Void in
+//                toViewController.view.alpha = 1
+//                }) { (finished: Bool) -> Void in
+//                    transitionContext.completeTransition(true)
+//            }
+//        } else {
+//            UIView.animateWithDuration(0.4, animations: { () -> Void in
+//                fromViewController.view.alpha = 0
+//                }) { (finished: Bool) -> Void in
+//                    transitionContext.completeTransition(true)
+//                    fromViewController.view.removeFromSuperview()              }
+//        }
+//    }
 
     
     

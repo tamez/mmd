@@ -62,8 +62,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     
         // Event Listings
-        let technofeminism = Event(title: "Technofeminism", location: "Sightglass Coffee", dateString: "3.20.15", timeString: "1:00 pm")
-        let gameOfThrones = Event(title: "Game of Thrones", location: "Blue Bottle Coffee", dateString: "3.20.15", timeString: "1:00 pm")
+        let technofeminism = Event(
+            title: "Technofeminism",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm"
+        )
+        let gameOfThrones = Event(
+            title: "Game of Thrones",
+            location: "Blue Bottle Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm"
+        )
         let bikingInTheBay = Event(title: "Biking in the Bay", location: "Starbucks", dateString: "3.20.15", timeString: "1:00 pm")
         let iosForDesigners = Event(title: "iOS for Designers", location: "thoughtbot", dateString: "3.20.15", timeString: "1:00 pm")
         
@@ -103,7 +113,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         var cell = tableView.dequeueReusableCellWithIdentifier("eventCellId") as EventCell
         let event = events[indexPath.row]
         
-        cell.eventTitle.text = event.title
+        let titleAttributes = [NSKernAttributeName: 1.05]
+        
+        let attributedEventTitle = NSAttributedString(string: event.title, attributes:titleAttributes)
+        
+        cell.eventTitle.attributedText = attributedEventTitle
         cell.eventSubtitle.text = event.subtitle
         cell.eventImage.image = event.image
         
@@ -149,6 +163,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // Segue to Event Detail Vc
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if sender.isEqual(UITableViewCell) {
+        }
+        println("sender \(sender)")
+
+        
         let cell = sender as EventCell
         let indexPath = eventTableView.indexPathForCell(cell)
         

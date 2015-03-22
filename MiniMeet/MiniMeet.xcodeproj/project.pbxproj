@@ -58,6 +58,7 @@
 		10FCFE281ABE7F6B008CB295 /* DINNextLTPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Light.otf"; sourceTree = "<group>"; };
 		10FCFE291ABE7F8D008CB295 /* DINNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Regular.otf"; sourceTree = "<group>"; };
 		10FCFE2D1ABEA123008CB295 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		10FCFE2F1ABF2BC2008CB295 /* Temp Delete Me!.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Temp Delete Me!.playground"; sourceTree = "<group>"; };
 		B8B0FCFF1AB008500097E996 /* MiniMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B0FD031AB008500097E996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8B0FD041AB008500097E996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 				B8B0FD0B1AB008500097E996 /* Images.xcassets */,
 				B8B0FD0D1AB008500097E996 /* LaunchScreen.xib */,
 				B8B0FD261AB01C400097E996 /* Main.storyboard */,
+				10FCFE2F1ABF2BC2008CB295 /* Temp Delete Me!.playground */,
 				10D4A6A41AB687F6002E614D /* OnboardingViewController.swift */,
 				10D4A6A01AB655B5002E614D /* SignInViewController.swift */,
 				10791E381AB574DF00A6DF27 /* ProfileEditViewController.swift */,
