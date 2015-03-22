@@ -22,7 +22,6 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var dividerBar: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var submitView: UIView!
     @IBOutlet weak var submitBackground: UIView!
@@ -44,7 +43,6 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         descriptionText.alpha = 0
         descriptionTitle.alpha = 0
         submitButton.alpha = 0
-        dividerBar.alpha = 0
         mapView.alpha = 0
         attendeeOne.alpha = 0
         submitView.alpha = 0
@@ -130,7 +128,6 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         var descriptionPosition = self.descriptionText.center.y
         var descriptionTitlePosition = self.descriptionTitle.center.y
         var submitPosition = self.submitButton.center.y
-        var dividerPosition = self.dividerBar.center.y
         var mapPosition = self.mapView.center.y
         let duration: NSTimeInterval = 0.8
         
@@ -158,12 +155,6 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
                 //
         }
         
-        UIView.animateWithDuration(duration, delay: 0.23, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: nil, animations: { () -> Void in
-            self.dividerBar.center.y = dividerPosition + 30
-            self.dividerBar.alpha = 1
-            }) { (bool) -> Void in
-                //
-        }
         
         UIView.animateWithDuration(duration, delay: 0.35, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: nil, animations: { () -> Void in
             self.mapView.center.y = mapPosition + 30
@@ -186,71 +177,6 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-//        isPresenting = true
-//        return self
-//    }
-//    
-//    func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-//        isPresenting = false
-//        return self
-//    }
-//    
-//    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-//        return 0.4
-//    }
-//    
-//    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-//        
-//        var containerView = transitionContext.containerView()
-//        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-//        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-//        
-//        if (isPresenting) {
-//            var submitViewStart = submitView.center.y + 700
-//            var submitViewEnd = submitView.center.y
-//            submitView.center.y = submitViewStart
-//            
-//            
-//            
-//            UIView.animateWithDuration(0.5)
-//                { () -> Void in
-//                    self.submitView.center.y = submitViewEnd
-//                    
-//            }
-//            
-//            
-//            containerView.addSubview(toViewController.view)
-//            toViewController.view.alpha = 0
-//            UIView.animateWithDuration(0.4, animations: { () -> Void in
-//                toViewController.view.alpha = 1
-//                }) { (finished: Bool) -> Void in
-//                    transitionContext.completeTransition(true)
-//            }
-//        } else {
-//            UIView.animateWithDuration(0.4, animations: { () -> Void in
-//                fromViewController.view.alpha = 0
-//                }) { (finished: Bool) -> Void in
-//                    transitionContext.completeTransition(true)
-//                    fromViewController.view.removeFromSuperview()              }
-//        }
-//    }
-
     
     
     
