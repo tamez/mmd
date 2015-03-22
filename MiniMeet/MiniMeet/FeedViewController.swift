@@ -211,29 +211,29 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBAction func createButtonDidPress(sender: AnyObject) {
-        self.performSegueWithIdentifier("createEventSegue", sender: self)
+//        self.performSegueWithIdentifier("createEventSegue", sender: self)
     }
     
     // Segue to Event Detail Vc
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        if sender.isEqual(UITableViewCell) {
+        if sender.isMemberOfClass(EventCell) {
+            let cell = sender as EventCell
+            let indexPath = eventTableView.indexPathForCell(cell)
+            
+            var destinationVC = segue.destinationViewController as DetailsViewController
+            destinationVC.event = events[indexPath!.row]
+            
+            imageTransition = ImageTransition()
+            imageTransition.snapshot = cell.snapshot()
+            imageTransition.snapshotStartFrame = eventTableView.rectForRowAtIndexPath(indexPath!)
+            imageTransition.duration = 0.3
+            
+            destinationVC.transitioningDelegate = imageTransition
+            
+        } else {
+            // it is not a tableCell so don't do anything (yet)
         }
-        println("sender \(sender)")
-
-        
-        let cell = sender as EventCell
-        let indexPath = eventTableView.indexPathForCell(cell)
-        
-        var destinationVC = segue.destinationViewController as DetailsViewController
-        destinationVC.event = events[indexPath!.row]
-        
-        imageTransition = ImageTransition()
-        imageTransition.snapshot = cell.snapshot()
-        imageTransition.snapshotStartFrame = eventTableView.rectForRowAtIndexPath(indexPath!)
-        imageTransition.duration = 0.3
-        
-        destinationVC.transitioningDelegate = imageTransition
         // cell.hidden = true
     }
 }
