@@ -52,6 +52,7 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         
         eventTitle.text = event?.title
         eventSubtitle.text = event?.subtitle
+        descriptionText.text = event?.description
         
         self.view.backgroundColor = UIColor(red: 56/255, green: 77/255, blue: 103/255, alpha: 0.9)
         
