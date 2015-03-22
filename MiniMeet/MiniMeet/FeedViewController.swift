@@ -8,11 +8,11 @@
 
 import UIKit
 
-
 // Event Custom Struct
 
 struct Event {
     let title: String
+    let description: String
     let location: String
     let dateString: String
     let timeString: String
@@ -60,27 +60,102 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         eventTableView.dataSource = self
 //        eventTableView.rowHeight = 163
         
-    
+        
         // Event Listings
-        let technofeminism = Event(
-            title: "Technofeminism",
+        let nerdFun = Event(
+            title: "Nerd Fun",
+            description: "This event is awesome!",
             location: "Sightglass Coffee",
             dateString: "3.20.15",
-            timeString: "1:00 pm"
-        )
-        let gameOfThrones = Event(
-            title: "Game of Thrones",
-            location: "Blue Bottle Coffee",
-            dateString: "3.20.15",
-            timeString: "1:00 pm"
-        )
-        let bikingInTheBay = Event(title: "Biking in the Bay", location: "Starbucks", dateString: "3.20.15", timeString: "1:00 pm")
-        let iosForDesigners = Event(title: "iOS for Designers", location: "thoughtbot", dateString: "3.20.15", timeString: "1:00 pm")
+            timeString: "1:00 pm")
         
-    
+        let photowalk = Event(
+            title: "Lands End Photowalk",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let midnightRide = Event(
+            title: "Midnight Mystery Ride",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let technofeminism = Event(
+            title: "Technofeminism",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let iosForDesigners = Event(
+            title: "iOS for Designers",
+            description: "This event is awesome!",
+            location: "ThoughtBot",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let justMoved = Event(
+            title: "Just Moved to SF",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let cocoaPods = Event(
+            title: "CocoaPods",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let handLettering = Event(
+            title: "Hand Lettering",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let hackersFounders = Event(
+            title: "Hackers and Founders",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
+        
+        let digitalMusic = Event(
+            title: "Digital Music Production",
+            description: "This event is awesome!",
+            location: "Sightglass Coffee",
+            dateString: "3.20.15",
+            timeString: "1:00 pm")
         
         // Events Array
-        events = [technofeminism, gameOfThrones, bikingInTheBay, iosForDesigners]
+        events = [nerdFun, photowalk, midnightRide, technofeminism, iosForDesigners, justMoved, cocoaPods, handLettering, hackersFounders, digitalMusic]
+
+    
+//        // Event Listings
+//        let technofeminism = Event(
+//            title: "Technofeminism",
+//            location: "Sightglass Coffee",
+//            dateString: "3.20.15",
+//            timeString: "1:00 pm"
+//        )
+//        let gameOfThrones = Event(
+//            title: "Game of Thrones",
+//            location: "Blue Bottle Coffee",
+//            dateString: "3.20.15",
+//            timeString: "1:00 pm"
+//        )
+//        let bikingInTheBay = Event(title: "Biking in the Bay", location: "Starbucks", dateString: "3.20.15", timeString: "1:00 pm")
+//        let iosForDesigners = Event(title: "iOS for Designers", location: "thoughtbot", dateString: "3.20.15", timeString: "1:00 pm")
+//        
+//    
+//        
+//        // Events Array
+//        events = [technofeminism, gameOfThrones, bikingInTheBay, iosForDesigners]
         
         self.title = "Events"
         
