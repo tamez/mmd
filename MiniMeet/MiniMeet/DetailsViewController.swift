@@ -25,6 +25,8 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var submitView: UIView!
     @IBOutlet weak var submitBackground: UIView!
+    @IBOutlet weak var loadingImage: UIImageView!
+    @IBOutlet weak var successView: UIView!
     
     var event: Event?
 
@@ -47,6 +49,9 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         attendeeOne.alpha = 0
         submitView.alpha = 0
         submitBackground.alpha = 0
+        successView.alpha = 0
+        loadingImage.alpha = 0
+
         
         eventTitle.text = event?.title
         eventSubtitle.text = event?.subtitle
@@ -55,6 +60,9 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         self.view.backgroundColor = UIColor(red: 56/255, green: 77/255, blue: 103/255, alpha: 0.9)
         
         configureView()
+        
+//        var images = UIImage.animatedImageNamed("loading_", duration: 3.0)
+//        loadingImage.image = images
 
     }
     
@@ -104,16 +112,43 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func submitButtonDidPress(sender: AnyObject) {
     
         var submitViewPostion = self.submitView.center.y
+        var images = UIImage.animatedImageNamed("loading_", duration: 3.0)
+
         
-    
+        
+        delay(0.5, { () -> () in
+            UIView.animateWithDuration(2, animations: { () -> Void in
+                self.loadingImage.alpha = 1
+                self.loadingImage.image = images
+                
+
+            }, completion: { (bool) -> Void in
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
+                    self.loadingImage.alpha = 0
+
+                }, completion: { (bool) -> Void in
+                    
+                    
+
+                
+                })
+            })
+        
+        })
+        
         delay(0.1, { () -> () in
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                 self.submitView.center.y = submitViewPostion + 30
                 self.submitView.alpha = 1
                 self.submitBackground.alpha = 0.4
+
                
                 }, completion: { (bool) -> Void in
-                    //
+                    UIView.animateWithDuration(0.2, delay: 3, options: nil, animations: { () -> Void in
+                         self.successView.alpha = 1
+                    }, completion: { (bool) -> Void in
+                        //
+                    })
             })
         })
     }
@@ -124,6 +159,25 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
 
 
     // animate event details description and map on page load
+
+    @IBAction func browseButtonDidPress(sender: AnyObject) {
+        var offsetY = imageView.frame
+        
+        
+            dismissViewControllerAnimated(true, completion: nil)
+            imageView.alpha = 0
+            scrollView.alpha = 0
+            
+            // set endFrame properties
+             endFrame = imageView.frame
+        
+            // shift the position by offset
+            // endFrame.origin.y = -offsetY
+        
+        
+    
+    }
+
 
     func animateDetailsDown () {
         var descriptionPosition = self.descriptionText.center.y
