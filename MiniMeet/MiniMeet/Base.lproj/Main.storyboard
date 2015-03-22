@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4dY-K3-Dnd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="DINNextLTPro-Bold.otf">
+            <string>DINNextLTPro-Bold</string>
+            <string>DINNextLTPro-Bold</string>
+        </mutableArray>
         <mutableArray key="DINNextLTPro-Light.otf">
             <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
+            <string>DINNextLTPro-Light</string>
+        </mutableArray>
+        <mutableArray key="DINNextLTPro-Regular.otf">
+            <string>DINNextLTPro-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -110,7 +121,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startButton:" destination="Ouf-Cr-4CU" eventType="touchUpInside" id="Dpd-ar-2Rs"/>
-                                    <segue destination="4dY-K3-Dnd" kind="modal" identifier="feedSegue" animates="NO" id="Ccv-ez-rFC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be onboarding content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XCz-eZ-d96">
@@ -129,79 +139,6 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-335"/>
         </scene>
-        <!--Tab View Controller-->
-        <scene sceneID="5m9-Lz-tWp">
-            <objects>
-                <viewController id="4dY-K3-Dnd" customClass="TabViewController" customModule="MiniMeet" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LMQ-mE-hst">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="RFj-p6-HK6" userLabel="contentView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="wAF-wt-1uI" userLabel="tabView">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2XZ-0f-OWM">
-                                        <rect key="frame" x="151" y="13" width="24" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="create-icon">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="create-icon-selected"/>
-                                        <connections>
-                                            <segue destination="p0N-cc-Ukz" kind="modal" identifier="createSegue" id="iHh-Hc-4jF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ufb-tw-wxd" userLabel="Profile Button">
-                                        <rect key="frame" x="253" y="12" width="24" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="profile-icon">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="profile-icon-selected"/>
-                                        <connections>
-                                            <action selector="tabBarDidPress:" destination="4dY-K3-Dnd" eventType="touchUpInside" id="VSk-IO-RVS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dwQ-rZ-vPe" userLabel="Feed Button">
-                                        <rect key="frame" x="30" y="13" width="24" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <inset key="titleEdgeInsets" minX="-45" minY="34" maxX="0.0" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="6"/>
-                                        <state key="normal" image="feed-icon">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="feed-icon-selected"/>
-                                        <connections>
-                                            <action selector="tabBarDidPress:" destination="4dY-K3-Dnd" eventType="touchUpInside" id="pWW-XM-2oY"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.25624486019999998" green="0.32588918589999999" blue="0.35505756579999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="81V-GJ-44K"/>
-                    <connections>
-                        <outlet property="contentView" destination="RFj-p6-HK6" id="X7r-Df-t2R"/>
-                        <outletCollection property="buttons" destination="dwQ-rZ-vPe" collectionClass="NSMutableArray" id="Wlx-hv-3pA"/>
-                        <outletCollection property="buttons" destination="ufb-tw-wxd" collectionClass="NSMutableArray" id="S3T-MI-SZr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DoG-dE-5F6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1070" y="354"/>
-        </scene>
         <!--Feed View Controller-->
         <scene sceneID="f4t-lb-Ep3">
             <objects>
@@ -210,44 +147,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="190" sectionHeaderHeight="22" sectionFooterHeight="22" id="flu-6g-WDy">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_background_tall@1x" id="ub1-xj-R1p">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="170" sectionHeaderHeight="22" sectionFooterHeight="22" id="flu-6g-WDy">
+                                <rect key="frame" x="0.0" y="64" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="center" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCellId" rowHeight="190" id="GnF-rk-lLE" customClass="EventCell" customModule="MiniMeet" customModuleProvider="target">
+                                    <tableViewCell contentMode="center" selectionStyle="none" indentationWidth="10" reuseIdentifier="eventCellId" rowHeight="170" id="GnF-rk-lLE" customClass="EventCell" customModule="MiniMeet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GnF-rk-lLE" id="m4E-K7-sNj">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="saU-Uk-J8t">
-                                                    <rect key="frame" x="0.0" y="1" width="320" height="183"/>
+                                                    <rect key="frame" x="0.0" y="1" width="320" height="160"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vignette2" id="NNB-a0-nmc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                                                    <rect key="frame" x="0.0" y="1" width="320" height="160"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xlq-TZ-BRi" userLabel="Location">
-                                                    <rect key="frame" x="20" y="150" width="248" height="21"/>
+                                                    <rect key="frame" x="10" y="114" width="271" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fi0-YC-u6d" userLabel="Title">
-                                                    <rect key="frame" x="20" y="128" width="256" height="21"/>
+                                                    <rect key="frame" x="10" y="90" width="256" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <gestureRecognizers/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="DINNextLTPro-Bold" family="DIN Next LT Pro" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jH7-1e-3KM">
+                                                    <rect key="frame" x="10" y="133" width="10" height="10"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.10284745065789473" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.050980392159999999" green="0.050980392159999999" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="eventImage" destination="saU-Uk-J8t" id="qGw-Sg-4gy"/>
@@ -258,6 +208,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BROWSE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YJl-f8-0EC">
+                                <rect key="frame" x="128" y="30" width="65" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H33-A7-aiN" userLabel="Create Button">
+                                <rect key="frame" x="287" y="505" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="create_button@1x">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Xol-Ln-VWh" kind="push" id="oDZ-hp-dXx"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="e0h-Mx-Yb2"/>
@@ -267,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39g-lX-GaD" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="1015"/>
+            <point key="canvasLocation" x="942" y="1154"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="1LB-9M-gRZ">
@@ -282,65 +249,91 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="mop-Nx-xRG" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="650"/>
+                                        <rect key="frame" x="0.0" y="20" width="320" height="650"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="okx-Rw-7UV">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GSq-1P-rB8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vignette2" id="uzb-dh-X3d">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vVM-3s-12T" userLabel="Location">
-                                                        <rect key="frame" x="20" y="150" width="248" height="21"/>
+                                                        <rect key="frame" x="10" y="114" width="248" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="13"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fhU-ch-CzK" userLabel="Title">
-                                                        <rect key="frame" x="20" y="128" width="256" height="21"/>
+                                                        <rect key="frame" x="10" y="90" width="256" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <gestureRecognizers/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" name="DINNextLTPro-Bold" family="DIN Next LT Pro" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event description will go here, event description will go here, event description will go here. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ffy-zz-no5" userLabel="Event description will go here, event description will go here, event description will go here.">
-                                                <rect key="frame" x="39" y="254" width="242" height="50"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ffy-zz-no5" userLabel="Event description will go here, event description will go here, event description will go here.">
+                                                <rect key="frame" x="10" y="265" width="300" height="125"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="12"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <string key="text">A Game of Thrones is the first novel in A Song of Ice and Fire, a series of high fantasy novels by American author George R. R. Martin. It was first published on August 6, 1996. The novella Blood of the Dragon, comprising the Daenerys Targaryen chapters from the novel, won the 1997 Hugo Award for Best Novella.</string>
+                                                <fontDescription key="fontDescription" name="DINNextLTPro-Regular" family="DIN Next LT Pro" pointSize="14"/>
+                                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jgv-5O-bYB">
-                                                <rect key="frame" x="0.0" y="350" width="320" height="128"/>
+                                                <rect key="frame" x="0.0" y="462" width="320" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.50196078430000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YdZ-Oq-rSK">
-                                                <rect key="frame" x="85" y="521" width="151" height="30"/>
+                                                <rect key="frame" x="85" y="395" width="151" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.27450980390000002" green="0.6705882353" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                <state key="normal" title="I want to attend!">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="12"/>
+                                                <state key="normal" title="ATTEND MEETUP">
+                                                    <color key="titleColor" red="0.0078431372549019607" green="0.77254901960784317" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="submitButtonDidPress:" destination="gjM-Dj-JbY" eventType="touchUpInside" id="P3f-Xi-pXQ"/>
-                                                    <segue destination="4dY-K3-Dnd" kind="modal" identifier="attendEventSegue" modalTransitionStyle="crossDissolve" id="sjM-Hd-Yjo"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" id="l3E-Dh-of6">
+                                                <rect key="frame" x="0.0" y="160" width="320" height="65"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zBi-3s-QYx">
+                                                        <rect key="frame" x="10" y="10" width="44" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.083675986842105268" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.050980392156862744" green="0.050980392156862744" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wQH-mb-GV8">
+                                                <rect key="frame" x="10" y="240" width="47" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="DINNextLTPro-Light" family="DIN Next LT Pro" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="highlightedColor" red="0.76470588235294112" green="0.77647058823529413" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" id="FXN-Bj-BFL" userLabel="Divider">
+                                                <rect key="frame" x="10" y="437" width="300" height="1"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -349,26 +342,23 @@
                             <view contentMode="scaleToFill" id="joE-ys-xyk" userLabel="Nav bar">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_background" id="Frm-dP-IUq">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YJQ-ks-nup">
-                                <rect key="frame" x="0.0" y="0.0" width="69" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressCancelButton:" destination="gjM-Dj-JbY" eventType="touchUpInside" id="lla-aN-9JE"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="YJQ-ks-nup" id="uPK-x7-8bC"/>
+                        <outlet property="attendeeOne" destination="zBi-3s-QYx" id="Ksz-IF-t6t"/>
                         <outlet property="containerView" destination="okx-Rw-7UV" id="peC-UL-owM"/>
                         <outlet property="contentView" destination="mop-Nx-xRG" id="4Ce-hz-0Qa"/>
                         <outlet property="descriptionText" destination="Ffy-zz-no5" id="107-nz-h5R"/>
+                        <outlet property="descriptionTitle" destination="wQH-mb-GV8" id="xOf-eT-oRh"/>
+                        <outlet property="dividerBar" destination="FXN-Bj-BFL" id="c7w-kV-zWT"/>
                         <outlet property="eventSubtitle" destination="vVM-3s-12T" id="qgw-fH-bDd"/>
                         <outlet property="eventTitle" destination="fhU-ch-CzK" id="bZL-vQ-oJh"/>
                         <outlet property="imageView" destination="GSq-1P-rB8" id="z0p-Lz-UIy"/>
@@ -379,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ezK-Pt-yzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308" y="1014"/>
+            <point key="canvasLocation" x="1312" y="1154"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="9Vo-gc-3RY">
@@ -641,7 +631,6 @@
                                                 <connections>
                                                     <action selector="cancelDidPress:" destination="Xol-Ln-VWh" eventType="touchUpInside" id="jqb-vV-mxm"/>
                                                     <action selector="submitButtonDidPress:" destination="Xol-Ln-VWh" eventType="touchUpInside" id="sKt-en-Lwl"/>
-                                                    <segue destination="4dY-K3-Dnd" kind="modal" identifier="submitEventSegue" id="R8I-Vl-PmB"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="6dS-Lp-g7K" userLabel="title text field">
@@ -721,7 +710,7 @@
         <!--Navigation Controller-->
         <scene sceneID="K8n-c4-YlQ">
             <objects>
-                <navigationController storyboardIdentifier="feedNavigation" automaticallyAdjustsScrollViewInsets="NO" id="csb-67-6M9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="feedNavigation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="csb-67-6M9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iRe-4v-L4U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -734,7 +723,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hm5-d1-VJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="568" y="1015"/>
+            <point key="canvasLocation" x="568" y="1154"/>
         </scene>
         <!--Profile-->
         <scene sceneID="5bc-e8-0lI">
@@ -796,14 +785,11 @@
     <resources>
         <image name="add-image-background" width="375" height="196"/>
         <image name="add-image-icon" width="176" height="176"/>
-        <image name="create-icon" width="48" height="42"/>
-        <image name="create-icon-selected" width="48" height="42"/>
-        <image name="feed-icon" width="46" height="42"/>
-        <image name="feed-icon-selected" width="46" height="42"/>
+        <image name="bar_background" width="320" height="20"/>
+        <image name="create_button@1x" width="24" height="24"/>
         <image name="login_form" width="320" height="113"/>
         <image name="logo" width="292" height="116"/>
-        <image name="profile-icon" width="48" height="48"/>
-        <image name="profile-icon-selected" width="48" height="48"/>
+        <image name="nav_background_tall@1x" width="320" height="64"/>
         <image name="profile-sample" width="164" height="164"/>
         <image name="setting-icon" width="42" height="42"/>
         <image name="vignette2" width="320" height="180"/>
@@ -814,6 +800,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="sjM-Hd-Yjo"/>
+        <segue reference="oDZ-hp-dXx"/>
     </inferredMetricsTieBreakers>
 </document>

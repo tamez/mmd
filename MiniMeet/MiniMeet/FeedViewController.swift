@@ -15,10 +15,11 @@ struct Event {
     let title: String
     let location: String
     let dateString: String
+    let timeString: String
     
     var subtitle: String {
         get {
-            return "\(location) • \(dateString)"
+            return "D \(dateString)   T \(timeString)   L \(location)"
         }
     }
     
@@ -57,14 +58,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         eventTableView.delegate = self
         eventTableView.dataSource = self
-//        eventTableView.rowHeight = 190
+//        eventTableView.rowHeight = 163
         
     
         // Event Listings
-        let technofeminism = Event(title: "Technofeminism", location: "Sightglass Coffee", dateString: "March 20, 1 pm")
-        let gameOfThrones = Event(title: "Game of Thrones", location: "Blue Bottle Coffee", dateString: "April 22, 2 pm")
-        let bikingInTheBay = Event(title: "Biking in the Bay", location: "Starbucks", dateString: "April 4, 3 pm")
-        let iosForDesigners = Event(title: "iOS for Designers", location: "ThoughtBot", dateString: "April 10, 6 pm")
+        let technofeminism = Event(title: "Technofeminism", location: "Sightglass Coffee", dateString: "3.20.15", timeString: "1:00 pm")
+        let gameOfThrones = Event(title: "Game of Thrones", location: "Blue Bottle Coffee", dateString: "3.20.15", timeString: "1:00 pm")
+        let bikingInTheBay = Event(title: "Biking in the Bay", location: "Starbucks", dateString: "3.20.15", timeString: "1:00 pm")
+        let iosForDesigners = Event(title: "iOS for Designers", location: "thoughtbot", dateString: "3.20.15", timeString: "1:00 pm")
         
         // Events Array
         events = [technofeminism, gameOfThrones, bikingInTheBay, iosForDesigners]

@@ -10,15 +10,17 @@ import UIKit
 
 class DetailsViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var attendeeOne: UIButton!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var mapView: UIImageView!
+    @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var descriptionText: UILabel!
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var eventSubtitle: UILabel!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var dividerBar: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var event: Event?
@@ -36,7 +38,11 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         imageView.hidden = true
         
         descriptionText.alpha = 0
+        descriptionTitle.alpha = 0
+        submitButton.alpha = 0
+        dividerBar.alpha = 0
         mapView.alpha = 0
+        attendeeOne.alpha = 0
         
         eventTitle.text = event?.title
         eventSubtitle.text = event?.subtitle
@@ -63,7 +69,6 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         var newImagePoint = imageView.frame.origin
         var offsetFade = 1 - (scrollView.contentOffset.y / -60)
         
-        cancelButton.alpha = offsetFade
         submitButton.alpha = offsetFade
         
     }
@@ -77,7 +82,6 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
                 dismissViewControllerAnimated(true, completion: nil)
                 imageView.alpha = 0
                 scrollView.alpha = 0
-                cancelButton.hidden = true
                 
                 // set endFrame properties
                 endFrame = imageView.frame
@@ -104,18 +108,44 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
 
     func animateDetailsDown () {
         var descriptionPosition = self.descriptionText.center.y
+        var descriptionTitlePosition = self.descriptionTitle.center.y
+        var submitPosition = self.submitButton.center.y
+        var dividerPosition = self.dividerBar.center.y
         var mapPosition = self.mapView.center.y
         let duration: NSTimeInterval = 0.8
+        
+        var titlePosition = self.eventTitle.center.y
+        var subtitlePosition = self.eventSubtitle.center.y
         
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: nil, animations: { () -> Void in
             self.descriptionText.center.y = descriptionPosition + 30
             self.descriptionText.alpha = 1
+            self.descriptionTitle.center.y = descriptionTitlePosition + 30
+            self.descriptionTitle.alpha = 1
+            self.attendeeOne.alpha = 1
+           // self.eventTitle.center.y = titlePosition + 10
+           // self.eventSubtitle.center.y = subtitlePosition + 10
+            
             
         }) { (bool) -> Void in
             //
         }
         
-        UIView.animateWithDuration(duration, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(duration, delay: 0.15, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: nil, animations: { () -> Void in
+            self.submitButton.center.y = submitPosition + 30
+            self.submitButton.alpha = 1
+            }) { (bool) -> Void in
+                //
+        }
+        
+        UIView.animateWithDuration(duration, delay: 0.23, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: nil, animations: { () -> Void in
+            self.dividerBar.center.y = dividerPosition + 30
+            self.dividerBar.alpha = 1
+            }) { (bool) -> Void in
+                //
+        }
+        
+        UIView.animateWithDuration(duration, delay: 0.35, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: nil, animations: { () -> Void in
             self.mapView.center.y = mapPosition + 30
             self.mapView.alpha = 1
         }) { (bool) -> Void in
