@@ -67,6 +67,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let bikingInTheBay = Event(title: "Biking in the Bay", location: "Starbucks", dateString: "3.20.15", timeString: "1:00 pm")
         let iosForDesigners = Event(title: "iOS for Designers", location: "thoughtbot", dateString: "3.20.15", timeString: "1:00 pm")
         
+    
+        
         // Events Array
         events = [technofeminism, gameOfThrones, bikingInTheBay, iosForDesigners]
         
@@ -141,6 +143,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    @IBAction func createButtonDidPress(sender: AnyObject) {
+        self.performSegueWithIdentifier("createEventSegue", sender: self)
+    }
     
     // Segue to Event Detail Vc
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
