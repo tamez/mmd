@@ -179,6 +179,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func didPressProfileButton(sender: AnyObject) {
+        performSegueWithIdentifier("profileSegue", sender: self)
+    }
+    
+    
     // Animate the cell
             func cellTransition(cell: UITableViewCell) {
                 let view = cell.contentView

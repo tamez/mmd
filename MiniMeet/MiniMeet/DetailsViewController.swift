@@ -76,9 +76,7 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func didPressCancelButton(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+
     
     func scrollViewDidScroll(scrollView: UIScrollView!) {
         
@@ -159,7 +157,7 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction func browseButtonDidPress(sender: AnyObject) {
         var offsetY = imageView.frame
-        
+    
         
             dismissViewControllerAnimated(true, completion: nil)
             imageView.alpha = 0
