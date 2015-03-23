@@ -45,7 +45,7 @@ class OnboardingViewController: UIViewController {
     func animateUp() {
         var imagePosition = self.phoneImage.center.y
         
-        UIView.animateWithDuration(0.8, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+        UIView.animateWithDuration(0.8, delay: 0.8, usingSpringWithDamping: 0.5, initialSpringVelocity: 40, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
             self.phoneImage.center.y = imagePosition - 30
             self.phoneImage.alpha = 1
             
