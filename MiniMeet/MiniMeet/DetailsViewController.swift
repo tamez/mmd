@@ -61,8 +61,7 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         
         configureView()
         
-//        var images = UIImage.animatedImageNamed("loading_", duration: 3.0)
-//        loadingImage.image = images
+
 
     }
     
@@ -116,36 +115,34 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
 
         
         
-        delay(0.5, { () -> () in
-            UIView.animateWithDuration(2, animations: { () -> Void in
-                self.loadingImage.alpha = 1
-                self.loadingImage.image = images
+        delay(0.4, { () -> () in
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+
+                self.submitBackground.alpha = 0.8
                 
 
             }, completion: { (bool) -> Void in
-                UIView.animateWithDuration(0.1, animations: { () -> Void in
+                UIView.animateWithDuration(2.8, animations: { () -> Void in
+                    self.loadingImage.alpha = 1
+                    self.loadingImage.image = images
+                    
+                }, completion: { (bool) -> Void in
                     self.loadingImage.alpha = 0
 
-                }, completion: { (bool) -> Void in
-                    
-                    
-
-                
                 })
             })
         
         })
         
         delay(0.1, { () -> () in
-            UIView.animateWithDuration(0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 3.4, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                 self.submitView.center.y = submitViewPostion + 30
                 self.submitView.alpha = 1
-                self.submitBackground.alpha = 0.4
-
+                self.successView.alpha = 1
                
                 }, completion: { (bool) -> Void in
-                    UIView.animateWithDuration(0.2, delay: 3, options: nil, animations: { () -> Void in
-                         self.successView.alpha = 1
+                    UIView.animateWithDuration(0.2, delay: 2.8, options: nil, animations: { () -> Void in
+                        //
                     }, completion: { (bool) -> Void in
                         //
                     })
