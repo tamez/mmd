@@ -51,9 +51,17 @@ class DetailsViewController: UIViewController, UIScrollViewDelegate {
         submitBackground.alpha = 0
         successView.alpha = 0
         loadingImage.alpha = 0
+        
+//        let titleAttributes = [NSKernAttributeName: 1.05]
+        
+//        let attributedEventTitle = NSAttributedString(string: eventTitle?.text?, attributes:titleAttributes)
+        
+//        eventTitle.attributedText = attributedEventTitle
+        
+        
 
         
-        eventTitle.text = event?.title
+        //eventTitle.text = event?.title
         eventSubtitle.text = event?.subtitle
         descriptionText.text = event?.description
         
